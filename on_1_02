@@ -1,0 +1,24 @@
+f = open(r"D:\ФАЙЛЫ\27-71b.txt")
+n = int(f.readline())
+s = ms = 0
+ml = 0
+m = [10 ** 20] * 69
+l = [0] * 69
+for i in range(n):
+    x = int(f.readline())
+    s += x
+    if s % 69 == 0:
+        if s > ms:
+            ms = s
+            ml = i + 1
+
+    s1 = s - m[s % 69]
+    l1 = (i + 1) - l[s % 69]
+    if s1 > ms:
+        ms = s1
+        ml = l1
+
+    if s < m[s % 69]:
+        m[s % 69] = s
+        l[s % 69] = i + 1
+print(ms, ml)
